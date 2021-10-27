@@ -1,6 +1,6 @@
 Feature: Busqueda en la web Automation practice
 
-  @Smoke @Fede
+  @Smoke
   Scenario Outline: busqueda de articulos
     Given el usuario esta en la web de Automation Practice
     When el usuario busca la palabra "<articulo>"
@@ -12,10 +12,10 @@ Feature: Busqueda en la web Automation practice
     |dresses|
     |blouses|
 
-  @Smoke @Fede
+  @Smoke @Fede1
   Scenario: Ordenamiento de la busqueda
     Given el usuario esta en la web de Automation Practice
-    When  el usuario busca la palabra "dresses"
+    When  el usuario busca la palabra "short"
     And el usuario da clik en el boton de buscar
     And el usuario ordena los productos de menor a mayor precio
     Then el usuario verifica que se ordeno de menor a mayor precio

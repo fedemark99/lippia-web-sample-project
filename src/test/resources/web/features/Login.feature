@@ -1,6 +1,6 @@
 Feature: Login
 
-  @Smoke @Fede
+  @Smoke
   Scenario: Login exitoso
     Given el usuario esta en la web de Automation Practice
     When el usuario pulsa el botón Sign in

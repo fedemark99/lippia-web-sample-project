@@ -9,8 +9,8 @@ public class Practica1ClaseWebConstants {
     public static final By OPTION = By.xpath("xpath://option[contains(@value,'reference:asc')]");
 
     public static final String SPAN_TEXT_XPATH = "xpath://*[@id=\"center_column\"]/h1/span[1]";
-    public static final String SPAN_SORT_PRICE1 = "xpath://span[contains(@class,'price product-price')]";
-    public static final String ejemplo = "xpath://span[@class='price product-price']";
+    public static final String SPAN_SORT_PRICE1 = "xpath://div[@class='right-block']/div[@class='content_price']/span[contains(@class,'price product-price')]";
+
     public static final String SPAN_SORT_PRICE2 = "xpath://*[@id=\"center_column\"]/ul/li[3]/div/div[2]/div[1]/span";
 
     public static final String SEARCH_BUTTON_XPATH = "xpath://*[@id=\"searchbox\"]/button";

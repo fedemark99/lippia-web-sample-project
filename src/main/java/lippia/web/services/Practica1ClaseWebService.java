@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.crowdar.core.actions.WebActionManager.*;
@@ -41,14 +42,10 @@ public class Practica1ClaseWebService extends ActionManager {
 
 
     public static void clickBotonSort() {
-        try {
-            Thread.sleep(3000);
-        }catch (Exception e){
-            e.getMessage();
-        }
-
+        //waitVisibility(Practica1ClaseWebConstants.SELECT_SORT_XPATH);
         Select select = new Select(getElement(Practica1ClaseWebConstants.SELECT_SORT_XPATH));
-        select.selectByIndex(6);
+        //select.selectByValue("Price: Lowest first");
+        select.selectByIndex(1);
 
     }
 
@@ -70,7 +67,7 @@ public class Practica1ClaseWebService extends ActionManager {
 
     public static void verificarOrdenamiento(){
         waitVisibility(Practica1ClaseWebConstants.UL_LIST_XPATH);
-        Assert.assertTrue(RecorrerArray());
+        Assert.assertTrue(RecorrerArray(),"error");
 
     }
 
@@ -81,23 +78,27 @@ public class Practica1ClaseWebService extends ActionManager {
 
     public static boolean RecorrerArray()  {
         boolean result = false;
-        float num2 = 0;
+        float valor2 = 0;
 
-        List<WebElement> list = getElements(Practica1ClaseWebConstants.SPAN_SORT_PRICE1);
 
-        try {
-            for (int i = 1; i < list.size() ; i+=2) {
-                String cadena1 = list.get(i).getText();
-                String val1 = cadena1.substring(1,cadena1.length()-1);
+        try{
+            List<WebElement> list = getElements(Practica1ClaseWebConstants.SPAN_SORT_PRICE1);
+            for (WebElement precio:list) {
+                String cadenaPrecio = precio.getText();
+                String valor1 = cadenaPrecio.substring(1,cadenaPrecio.length());
 
-                if (Float.parseFloat(val1) > num2 ) {
-                    num2 = Float.parseFloat(val1);
+                if (Float.parseFloat(valor1) > valor2 ) {
+                    valor2 = Float.parseFloat(valor1);
                     result = true;
+                }else{
+                    result = false;
+                    break;
                 }
             }
-        } catch (Exception e) {
+        }catch(Exception e){
             e.getMessage();
         }
+
         return result;
     }
 
