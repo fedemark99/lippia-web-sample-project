@@ -42,10 +42,10 @@ public class Practica1ClaseWebService extends ActionManager {
 
 
     public static void clickBotonSort() {
-        //waitVisibility(Practica1ClaseWebConstants.SELECT_SORT_XPATH);
+
         Select select = new Select(getElement(Practica1ClaseWebConstants.SELECT_SORT_XPATH));
-        //select.selectByValue("Price: Lowest first");
-        select.selectByIndex(1);
+        select.selectByVisibleText("Price: Lowest first");
+        //select.selectByIndex(1);
 
     }
 
@@ -67,7 +67,7 @@ public class Practica1ClaseWebService extends ActionManager {
 
     public static void verificarOrdenamiento(){
         waitVisibility(Practica1ClaseWebConstants.UL_LIST_XPATH);
-        Assert.assertTrue(RecorrerArray(),"error");
+        Assert.assertTrue(RecorrerArray());
 
     }
 
